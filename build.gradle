@@ -1,0 +1,31 @@
+// 그레이들 페이지 공간
+    // 1. 외부 라이브러리를 다운로드 받는 코드 작성
+    // 2. 그루비 언어 [ JSON과 유사한 구조 ]
+
+plugins {
+    id 'org.springframework.boot' version '2.7.0'   // 스프링부트 라이브러리 이름
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'   // 스프링 의존성 관리 라이브러리 이름
+    id 'java'   // 자바 라이브러리 이름
+}
+
+group = 'com.example'   // 그룹명 ->> 없어도 상관없음
+version = '0.0.1-SNAPSHOT'  // 그룹 버전 ->> 없어도 상관없음
+sourceCompatibility = '1.8' // 자바 버전
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {  // 의존성 [ 라이브러리 다운로드 받아오는 공간 ] 
+    implementation 'org.springframework.boot:spring-boot-starter-web'   // starter-web 이라는 의존성을 부여.
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // 타임리프
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // starter-test
+    // 새로운 의존성을 추가하려면 여기에 작성!!!
+    // 예시 ->> 이클립스에서 json.jar를 임포트 하는것처럼 여기에 코드를 작성하여 의존성(임포트) 부여.
+    // 내가 이클립스 쓸 때 JAVALIBRARY 폴더 백업해놓는것처럼 이 코드를 백업해놔야 함!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+tasks.named('test') {   // 스프링은 테스트를 권장.
+        // 테스트란?? 실제 코드를 퍼블리싱 하지 않고 가상으로? 실행하는 공간
+    useJUnitPlatform()
+}
